@@ -26,6 +26,15 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('AngularTesting app is running!');
+    expect(compiled.querySelector('#titlePage').textContent).toContain('AngularTesting app is running!');
   });
+
+  it('should change title to "LearnTesting app is running"', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.nativeElement.querySelector('button').click();
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('h3')
+        .textContent).toEqual('LearnTesting app is running!');
+}));
+
 });
